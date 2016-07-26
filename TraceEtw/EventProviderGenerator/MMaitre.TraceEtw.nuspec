@@ -4,16 +4,21 @@
     <id>MMaitre.TraceEtw</id>
     <title>ETW Tracing</title>
     <version>$version$</version>
-    <authors>Matthieu Maitre</authors>
-    <owners>Matthieu Maitre</owners>
+    <authors>Matthieu Maitre, Jozef Izso</authors>
+    <owners>Matthieu Maitre, Jozef Izso</owners>
     <licenseUrl>https://raw.githubusercontent.com/mmaitre314/TraceEtw/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/mmaitre314/TraceEtw</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>High-performance tracing for C++ Desktop apps and Windows/Windows Phone Store apps.</summary>
     <description>Simplified Event Tracing for Windows (ETW) in Desktop apps and Windows/Windows Phone Store apps. Traces can be either structured or unstructured. For documentation see https://github.com/mmaitre314/TraceEtw .</description>
-    <copyright>Copyright © 2015, Matthieu Maitre. All rights reserved.</copyright>
+    <copyright>Copyright © 2015, Matthieu Maitre. Copyright © 2016, Jozef Izso. All rights reserved.</copyright>
     <tags>Native WinRT ETW Tracing</tags>
-    <releaseNotes>Make the provider GUID optional, rename scripts, remove the need for manifest registration, and remove dependency no MSBuildTasks</releaseNotes>
+    <releaseNotes>TraceEtw v1.1:
+* Allows definition of Channels
+* Events and Channels can have Message attribute in English language
+
+TraceEtw v1.0:
+* Make the provider GUID optional, rename scripts, remove the need for manifest registration, and remove dependency on MSBuildTasks</releaseNotes>
   </metadata>
   <files>
     <file src="MMaitre.TraceEtw.targets" target="build\native\" />
