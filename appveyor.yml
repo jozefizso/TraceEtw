@@ -28,7 +28,7 @@ before_build:
 
 build:
   project: TraceEtw\Build.proj
-  verbosity: detailed
+  verbosity: normal
 
 artifacts:
   - path: 'TraceEtw\artifacts\*.nupkg'
