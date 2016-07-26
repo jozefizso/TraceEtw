@@ -28,7 +28,7 @@ before_build:
 
 build:
   project: TraceEtw\Build.proj
-  verbosity: detailed
+  verbosity: normal
 
 artifacts:
   - path: 'TraceEtw\artifacts\*.nupkg'
@@ -36,6 +36,15 @@ artifacts:
 test_script:
   - vstest.console /logger:Appveyor TraceEtw\EventProviderGeneratorTests\bin\%CONFIGURATION%\EventProviderGeneratorTests.dll
   - vstest.console /logger:Appveyor TraceEtw\%CONFIGURATION%\TraceEtwTests.Desktop.dll
+
+deploy:
+  provider: NuGet
+  api_key:
+    secure: jINaEHhYh83PTuZYPwnkoTDUMB+pTz6UMmeqkWeRnqtZXIuX/Nd3Fyu197viK/vR
+  skip_symbols: true
+  on:
+    appveyor_repo_tag: true
+    configuration: Release
 
 cache:
   - TraceEtw\packages -> **\packages.config
