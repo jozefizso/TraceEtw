@@ -36,28 +36,15 @@ namespace EventProviderGeneratorTests
         }
 
         [Test]
-        public void GetGuidFromName_ProviderName_ReturnsDerivedGuid()
+        [TestCase("Company_ProviderName", "{087dbfbb-b160-5b9e-6848-551a57847db4}")]
+        [TestCase("Company-Product-Component", "{25919991-eb95-5bdc-42b1-e284dbe4c542}")]
+        public void GetGuidFromName_ProviderName_ReturnsDerivedGuid(string validProviderName, string expectedGuidValue)
         {
             // Arrange
-            var expectedGuid = Guid.Parse("{087dbfbb-b160-5b9e-6848-551a57847db4}");
-            var validProviderName = "Company_ProviderName";
+            var expectedGuid = Guid.Parse(expectedGuidValue);
 
             // Act
             var actualGuid = StringExtensions.GetGuidFromName(validProviderName);
-
-            // Assert
-            Assert.AreEqual(expectedGuid, actualGuid);
-        }
-
-        [Test]
-        public void GetGuidFromName_ProviderName_ReturnsDerivedGuid2()
-        {
-            // Arrange
-            var expectedGuid = Guid.Parse("{25919991-eb95-5bdc-42b1-e284dbe4c542}");
-            var providerName = "Company-Product-Component";
-
-            // Act
-            var actualGuid = StringExtensions.GetGuidFromName(providerName);
 
             // Assert
             Assert.AreEqual(expectedGuid, actualGuid);
