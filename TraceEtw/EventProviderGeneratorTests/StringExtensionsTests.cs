@@ -48,5 +48,19 @@ namespace EventProviderGeneratorTests
             // Assert
             Assert.AreEqual(expectedGuid, actualGuid);
         }
+
+        [TestMethod]
+        public void GetGuidFromName_ProviderName_ReturnsDerivedGuid2()
+        {
+            // Arrange
+            var expectedGuid = Guid.Parse("{25919991-eb95-5bdc-42b1-e284dbe4c542}");
+            var providerName = "Company-Product-Component";
+
+            // Act
+            var actualGuid = StringExtensions.GetGuidFromName(providerName);
+
+            // Assert
+            Assert.AreEqual(expectedGuid, actualGuid);
+        }
     }
 }
