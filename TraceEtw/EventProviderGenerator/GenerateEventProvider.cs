@@ -268,7 +268,7 @@ namespace EventProviderGenerator
 
         private static string GetSafeString(string name)
         {
-            return name.Replace('-', '_').Replace('.', '_');
+            return name.GetSafeString();
         }
 
         private static Guid GetGuidFromName(string name)
