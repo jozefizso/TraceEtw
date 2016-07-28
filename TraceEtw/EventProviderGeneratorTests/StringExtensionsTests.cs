@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using EventProviderGenerator;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace EventProviderGeneratorTests
 {
-    [TestClass]
+    [TestFixture]
     public class StringExtensionsTests
     {
-        [TestMethod]
+        [Test]
         public void GetSafeString_ProviderNameWithDots_ReturnsSanitizedProviderName()
         {
             // Arrange
@@ -22,7 +22,7 @@ namespace EventProviderGeneratorTests
             Assert.AreEqual("Company_ProviderName", actualProviderName);
         }
 
-        [TestMethod]
+        [Test]
         public void GetSafeString_ProviderNameWithDashes_ReturnsSanitizedProviderName()
         {
             // Arrange
@@ -35,7 +35,7 @@ namespace EventProviderGeneratorTests
             Assert.AreEqual("Company_ProviderName", actualProviderName);
         }
 
-        [TestMethod]
+        [Test]
         public void GetGuidFromName_ProviderName_ReturnsDerivedGuid()
         {
             // Arrange
@@ -49,7 +49,7 @@ namespace EventProviderGeneratorTests
             Assert.AreEqual(expectedGuid, actualGuid);
         }
 
-        [TestMethod]
+        [Test]
         public void GetGuidFromName_ProviderName_ReturnsDerivedGuid2()
         {
             // Arrange

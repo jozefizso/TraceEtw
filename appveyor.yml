@@ -34,7 +34,7 @@ artifacts:
   - path: 'TraceEtw\artifacts\*.nupkg'
 
 test_script:
-  - vstest.console /logger:Appveyor TraceEtw\EventProviderGeneratorTests\bin\%CONFIGURATION%\EventProviderGeneratorTests.dll
+  - nunit3-console TraceEtw\EventProviderGeneratorTests\bin\%CONFIGURATION%\EventProviderGeneratorTests.dll --result=EventProviderGeneratorTestsResults.xml;format=AppVeyor
   - vstest.console /logger:Appveyor TraceEtw\%CONFIGURATION%\TraceEtwTests.Desktop.dll
 
 deploy:
