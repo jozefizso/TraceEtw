@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instrumentationManifest 
+  xmlns="http://schemas.microsoft.com/win/2004/08/events"
+  xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  >
+  <instrumentation>
+    <events>
+      <provider
+        name="MMaitre-TraceEtw"
+        symbol="MMaitre_TraceEtw"
+        guid="{d7bcc40a-0866-52c3-aade-b3c8d32fd38e}"
+        resourceFileName="placeholder.dll"
+        messageFileName="placeholder.dll"
+        >
+        <channels>
+        </channels>
+        <tasks>
+          <task value="1" name="Trace" />
+          <task value="2" name="Error" />
+          <task value="3" name="Op" />
+          <task value="4" name="TraceVarArgsAnsi" />
+          <task value="5" name="TraceVarArgsUnicode" />
+          <task value="6" name="Marker2" />
+          <task value="7" name="MarkerOp" />
+          <task value="8" name="MarkerOp2" />
+          <task value="9" name="ManyArgs" />
+        </tasks>
+        <templates>
+          <template tid="template1">
+            <data name="Message" inType="win:AnsiString" />
+          </template>
+          <template tid="template2">
+            <data name="Message" inType="win:AnsiString" />
+          </template>
+          <template tid="template3">
+            <data name="Object" inType="win:Pointer" />
+          </template>
+          <template tid="template4">
+            <data name="Object" inType="win:Pointer" />
+            <data name="HResult" inType="win:Int32" />
+          </template>
+          <template tid="template5">
+            <data name="Message" inType="win:AnsiString" />
+          </template>
+          <template tid="template6">
+            <data name="Message" inType="win:UnicodeString" />
+          </template>
+          <template tid="template11">
+            <data name="Result" inType="win:GUID" />
+          </template>
+          <template tid="template12">
+            <data name="A" inType="win:Boolean" />
+            <data name="B" inType="win:Int8" />
+            <data name="C" inType="win:UInt8" />
+            <data name="D" inType="win:Int16" />
+            <data name="E" inType="win:UInt16" />
+            <data name="F" inType="win:Int32" />
+            <data name="G" inType="win:UInt32" />
+            <data name="H" inType="win:Int64" />
+            <data name="I" inType="win:UInt64" />
+            <data name="J" inType="win:Float" />
+            <data name="K" inType="win:Double" />
+            <data name="L" inType="win:GUID" />
+            <data name="M" inType="win:Pointer" />
+            <data name="N" inType="win:AnsiString" />
+            <data name="O" inType="win:UnicodeString" />
+          </template>
+        </templates>
+        <events>
+          <event value="1" symbol="MMaitre_TraceEtw_Trace" task="Trace" opcode="win:Info" level="win:Verbose" template="template1" />
+          <event value="2" symbol="MMaitre_TraceEtw_Error" task="Error" opcode="win:Info" level="win:Error" template="template2" />
+          <event value="3" symbol="MMaitre_TraceEtw_Op_Start" task="Op" opcode="win:Start" level="win:Informational" template="template3" />
+          <event value="4" symbol="MMaitre_TraceEtw_Op_Stop" task="Op" opcode="win:Stop" level="win:Informational" template="template4" />
+          <event value="5" symbol="MMaitre_TraceEtw_TraceVarArgsAnsi" task="TraceVarArgsAnsi" opcode="win:Info" level="win:Informational" template="template5" />
+          <event value="6" symbol="MMaitre_TraceEtw_TraceVarArgsUnicode" task="TraceVarArgsUnicode" opcode="win:Info" level="win:Informational" template="template6" />
+          <event value="7" symbol="MMaitre_TraceEtw_Marker2" task="Marker2" opcode="win:Info" level="win:Informational" />
+          <event value="8" symbol="MMaitre_TraceEtw_MarkerOp_Start" task="MarkerOp" opcode="win:Start" level="win:Informational" />
+          <event value="9" symbol="MMaitre_TraceEtw_MarkerOp_Stop" task="MarkerOp" opcode="win:Stop" level="win:Informational" />
+          <event value="10" symbol="MMaitre_TraceEtw_MarkerOp2_Start" task="MarkerOp2" opcode="win:Start" level="win:Informational" />
+          <event value="11" symbol="MMaitre_TraceEtw_MarkerOp2_Stop" task="MarkerOp2" opcode="win:Stop" level="win:Informational" template="template11" />
+          <event value="12" symbol="MMaitre_TraceEtw_ManyArgs" task="ManyArgs" opcode="win:Info" level="win:Warning" template="template12" />
+        </events>
+      </provider>
+    </events>
+  </instrumentation>
+  <localization>
+    <resources culture="en-US">
+      <stringTable>
+      </stringTable>
+    </resources>
+  </localization>
+</instrumentationManifest>

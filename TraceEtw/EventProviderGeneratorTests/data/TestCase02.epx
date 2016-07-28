@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EventProvider
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://mmaitre314.github.io/EventProvider.xsd"
+  Name="MMaitre-TraceEtw"
+  >
+
+  <Channel Id="ch1" Name="ChannelSymbolicName" Type="Admin" Enabled="true" Message="Display name of the log" />
+
+  <Event Name="Marker" Channel="ch1" Message="Message displayed in Event Viewer logs." />
+</EventProvider>

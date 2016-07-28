@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instrumentationManifest 
+  xmlns="http://schemas.microsoft.com/win/2004/08/events"
+  xmlns:win="http://manifests.microsoft.com/win/2004/08/windows/events"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  >
+  <instrumentation>
+    <events>
+      <provider
+        name="MMaitre-TraceEtw"
+        symbol="MMaitre_TraceEtw"
+        guid="{d7bcc40a-0866-52c3-aade-b3c8d32fd38e}"
+        resourceFileName="placeholder.dll"
+        messageFileName="placeholder.dll"
+        >
+        <channels>
+          <channel value="16" chid="ch1" name="ChannelSymbolicName" symbol="MMaitre_TraceEtw_ch1" type="Admin" enabled="true" message="$(string.MMaitre_TraceEtw_ch1_message)" />
+        </channels>
+        <tasks>
+          <task value="1" name="Marker" />
+        </tasks>
+        <templates>
+        </templates>
+        <events>
+          <event value="1" symbol="MMaitre_TraceEtw_Marker" task="Marker" opcode="win:Info" level="win:Informational" channel="ch1" message="$(string.MMaitre_TraceEtw_Marker_message)"/>
+        </events>
+      </provider>
+    </events>
+  </instrumentation>
+  <localization>
+    <resources culture="en-US">
+      <stringTable>
+        <string id="MMaitre_TraceEtw_ch1_message" value="Display name of the log" />
+        <string id="MMaitre_TraceEtw_Marker_message" value="Message displayed in Event Viewer logs." />
+      </stringTable>
+    </resources>
+  </localization>
+</instrumentationManifest>

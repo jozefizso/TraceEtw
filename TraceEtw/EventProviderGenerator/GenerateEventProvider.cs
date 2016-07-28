@@ -50,6 +50,7 @@ namespace EventProviderGenerator
 
             Log.LogMessage(MessageImportance.Normal, "Generating manifest");
             string xmlManifest = GenerateManifest(input);
+            File.WriteAllText(OutputDir + m_filename + ".man", xmlManifest, Encoding.UTF8);
 
             Log.LogMessage(MessageImportance.Normal, "Generating base header");
             if (!GenerateBaseHeader())
@@ -97,8 +98,13 @@ namespace EventProviderGenerator
 
         private EventProvider LoadInputXml()
         {
+            return this.LoadInputXml(this.InputXmlPath);
+        }
+
+        public EventProvider LoadInputXml(string inputXmlPath)
+        {
             var serializer = new XmlSerializer(typeof(EventProvider));
-            var input = (EventProvider)serializer.Deserialize(new FileStream(InputXmlPath, FileMode.Open));
+            var input = (EventProvider)serializer.Deserialize(new FileStream(inputXmlPath, FileMode.Open));
 
             if (string.IsNullOrEmpty(input.Guid))
             {
@@ -107,6 +113,14 @@ namespace EventProviderGenerator
 
             return input;
         }
+
+        public string GenerateManifest(EventProvider input, string providerName)
+        {
+            this.m_safeProviderName = providerName.GetSafeString();
+
+            return this.GenerateManifest(input);
+        }
+
 
         private string GenerateManifest(EventProvider input)
         {
@@ -260,8 +274,6 @@ namespace EventProviderGenerator
             );
 
             var xmlManifest = manifest.ToString();
-
-            File.WriteAllText(OutputDir + m_filename + ".man", xmlManifest, Encoding.UTF8);
 
             return xmlManifest;
         }
